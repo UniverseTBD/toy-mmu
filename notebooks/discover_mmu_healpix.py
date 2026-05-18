@@ -87,7 +87,6 @@ if __name__ == "__main__":
     print(f"Discovered {len(df)} (sub_catalog, healpix) pairs "
           f"across {df['sub_catalog'].nunique()} sub-catalogs.")
     print(df.head())
-    breakpoint()
     tt = df[df["catalog"].isin(["gaia", "chandra"])].groupby("healpix").agg({"sub_catalog": ["count", list], "size_bytes": "sum"})
     tt.columns = ["count", "list", "sum"]
     # list the healpixels that appear in more than one sub-catalog, sorted by total size
@@ -95,7 +94,6 @@ if __name__ == "__main__":
     tt[tt["count"] > 1].sort_values("sum", ascending=True).to_csv("mmu_healpix_overlap.csv")
 
 
-    breakpoint()
     overlap = (
         df.groupby("healpix")["sub_catalog"]
         .nunique()
