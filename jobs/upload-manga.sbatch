@@ -12,9 +12,14 @@
 #SBATCH --error=/mnt/home/thehir/projects/george-mmu-hdf5-to-hats/slurm-logs/slurm-%j.stderr
 #SBATCH --chdir=/mnt/home/thehir/projects/george-mmu-hdf5-to-hats
 
-# NOTE: keep the Xet cache outside the uploaded collection. Otherwise the upload
-# job can end up recursively uploading its own cache content.
-UPLOAD_DIR=/mnt/ceph/users/polymathic/manga-mmu-hdf5-to-hats
+CATALOG_NAME=mmu_manga
+
+# NOTE: upload the collection directory (OUTPUT_DIR/CATALOG_NAME), not its parent.
+# hats-import CollectionArguments creates OUTPUT_DIR/CATALOG_NAME/ as the collection root,
+# containing collection.properties and the catalog subdirectory. Uploading the collection
+# root means hf upload-large-folder puts collection.properties and mmu_manga/ at the HF
+# repo root, matching the layout of other MMU HATS datasets (e.g. mmu_legacysurvey_dr10_south_21).
+UPLOAD_DIR=/mnt/ceph/users/polymathic/manga-mmu-hdf5-to-hats/${CATALOG_NAME}
 
 export HF_XET_CACHE="/mnt/ceph/users/polymathic/tmp-hf-cache-manga-hf-upload"
 export HF_XET_HIGH_PERFORMANCE=1
