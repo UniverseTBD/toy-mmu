@@ -11,6 +11,10 @@ size_categories:
 - 100M<n<1B
 ---
 
+<div align="center">
+<img src="example_figure.png" width="600">
+</div>
+
 # mmu_legacysurvey_dr10_south_21 HATS Catalog Collection
 
 This is the collection of HATS catalogs representing mmu_legacysurvey_dr10_south_21.
@@ -90,3 +94,21 @@ print(crossmatched)
 ```
 
 See the [LSDB documentation](https://docs.lsdb.io/) for more details on crossmatching and other operations.
+
+### Dataset-specific context
+
+**Original survey**  
+This dataset is based on the DESI Legacy Imaging Surveys Data Release 10 (DR10), specifically the 4-band imaging of the southern sky covering approximately 15,000 square degrees. The Legacy Surveys combine imaging observations from multiple telescopes and provide a large, uniformly processed dataset over a substantial fraction of the sky.
+
+**Data modality**  
+The dataset consists of 124 million image cutouts (160 × 160 pixels) in four optical bands (g, r, i, z) with a pixel scale of 0.262 arcsec. Each image is associated with measurements produced by the Legacy Survey analysis pipeline.
+
+**Typical use cases**  
+This specific dataset compilation is presented for the first time. Similar datasets based on Legacy Survey images have been used for machine learning applications such as identifying strong gravitational lenses and classifying galaxy morphologies.
+
+**Caveats**  
+The dataset includes only objects selected according to specific criteria, including object type, magnitude, availability of observations in all four bands, and quality flags. No further processing is applied beyond these selection cuts. As a result, image cutouts may contain problematic regions around the central object, which can be identified using the provided mask field.
+
+**Citation**  
+When using this dataset in scientific publications, users should include the official Legacy Surveys acknowledgment:  
+https://www.legacysurvey.org/acknowledgment/#toc-entry-2

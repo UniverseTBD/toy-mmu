@@ -100,3 +100,20 @@ print(crossmatched)
 ```
 
 See the [LSDB documentation](https://docs.lsdb.io/) for more details on crossmatching and other operations.
+
+### Dataset-specific context
+
+**Original survey**  
+This dataset is based on the SDSS-IV MaNGA survey, an optical integral field spectroscopy survey of approximately 10,000 nearby galaxies. MaNGA aims to study the formation and evolution of present-day galaxies through spatially resolved spectroscopic observations.
+
+**Data modality**  
+The dataset contains information derived from both the MaNGA Data Reduction Pipeline (DRP) data cubes and the Data Analysis Pipeline (DAP) maps. Each entry corresponds to a single galaxy observation and includes spatially resolved spectra (spaxels), reconstructed images, and derived maps containing physical and kinematic properties.
+
+**Typical use cases**  
+The public MaNGA DR17 dataset has been used in numerous scientific publications in extragalactic astronomy, as well as in machine learning applications.
+
+**Caveats**  
+During preprocessing, all IFU cubes and derived maps are resized to a common spatial grid of 96 × 96 pixels. Zero-padding is added around the edges of the data, resulting in uniform cube and map dimensions across the dataset.
+
+**Citation**  
+The dataset is based on publicly available data from SDSS-IV MaNGA DR17. Users should include the official SDSS-IV acknowledgements when using this dataset in scientific publications.
